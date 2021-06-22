@@ -4,6 +4,21 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="">
+    <%= form.label :category_elements %>
+    <div class="row">
+      <% @categories.each do |category|%>
+        <label class="col-6 ">
+<!--          check box, a que valor lo va a mandar, acepta varios?, que valor va a mandar-->
+          <%= form.check_box :category_elements, {multiple: true}, category.id, nil%>
+          <%= category.title %>
+        </label>
+
+      <% end %>
+    </div>
+
+  </div>
+
   <div class="field">
     <%= form.label :content %>
     <%= form.rich_text_area :content %>
